@@ -366,3 +366,17 @@ Activation table
 Problem Statement:
 Design and implement a robust customer onboarding module for a stockbroking platform similar to Zerodha, covering the complete journey from user registration through KYC verification, bank account linking, e-signature, and trading account activation. The solution should define a normalized backend database schema capturing user profiles, KYC documents, verification statuses, and stage-wise progress. It must include scheduled jobs and database processes to automate status transitions, handle third-party verification callbacks (PAN, Aadhaar, bank), trigger reminders for drop-offs, and ensure data consistency across onboarding stages. Finally, build a Tableau dashboard visualizing funnel metrics such as stage-wise conversion rates, drop-off points, and average time-to-activation for stakeholder monitoring.
  
+
+
+ Component	Keep?	Reason
+Amazon S3	✅	Landing zone for synthetic data
+AWS Lambda	✅	Trigger pipeline on file upload
+AWS Step Functions	✅	Orchestrates ETL workflow
+AWS Glue (PySpark)	✅	Cleaning, validation, transformation
+Amazon RDS (PostgreSQL)	✅	Stores Bronze, Silver, and analytics-ready data
+dbt	✅	Builds Gold models, star schema, and KPIs
+Tableau	✅	Business dashboards
+FastAPI	✅	Backend for chatbot APIs
+LangChain	✅	Routes between SQL and RAG workflows
+FAISS	✅	Stores embeddings for SOPs, FAQs, and policy documents
+OpenAI / Bedrock	✅	Generates natural-language responses
